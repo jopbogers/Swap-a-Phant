@@ -51,4 +51,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Collection::class);
     }
+
+    public function initiatedTrades(): HasMany
+    {
+        return $this->hasMany(Trade::class, 'initiator_id');
+    }
+
+    public function targetedTrades(): HasMany
+    {
+        return $this->hasMany(Trade::class, 'target_id');
+    }
 }
