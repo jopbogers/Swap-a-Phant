@@ -22,7 +22,7 @@ class ElephantOverviewTest extends TestCase
     {
         Livewire::test(ElephantOverview::class)
             ->assertViewHas('elephants', fn ($elephants) => $elephants->count() === 0)
-            ->assertSee('No elephants found..');
+            ->assertSeeText('No elephants found..');
     }
 
     public function test_display_elephants()
@@ -31,8 +31,8 @@ class ElephantOverviewTest extends TestCase
 
         Livewire::test(ElephantOverview::class)
             ->assertViewHas('elephants', fn ($elephants) => $elephants->count() === 1)
-            ->assertSee($elephant->name)
-            ->assertSee($elephant->description);
+            ->assertSeeText($elephant->name)
+            ->assertSeeText($elephant->description);
     }
 
     public function test_searching_elephants_without_match()
@@ -42,7 +42,7 @@ class ElephantOverviewTest extends TestCase
         Livewire::test(ElephantOverview::class)
             ->set('search', 'sjaak')
             ->assertViewHas('elephants', fn ($elephants) => $elephants->count() === 0)
-            ->assertSee('No elephants found..');
+            ->assertSeeText('No elephants found..');
     }
 
     public function test_searching_elephants_with_match()
@@ -57,7 +57,7 @@ class ElephantOverviewTest extends TestCase
         Livewire::test(ElephantOverview::class)
             ->set('search', 'ees')
             ->assertViewHas('elephants', fn ($elephants) => $elephants->count() === 2)
-            ->assertSee('kees')
-            ->assertSee('mees');
+            ->assertSeeText('kees')
+            ->assertSeeText('mees');
     }
 }

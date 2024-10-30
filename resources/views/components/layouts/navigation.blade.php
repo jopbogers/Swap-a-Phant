@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('elephants')" :active="request()->routeIs('elephants')">
                         {{ __('Elephants') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('collection')" :active="request()->routeIs('collection')">
+                        {{ __('Collection') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -92,6 +95,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('elephants')" :active="request()->routeIs('elephants')">
                 {{ __('Elephants') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('collection')" :active="request()->routeIs('collection')">
+                {{ __('Collection') }}
             </x-responsive-nav-link>
         </div>
 
